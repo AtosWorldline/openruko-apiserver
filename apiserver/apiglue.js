@@ -78,7 +78,7 @@ module.exports.buildHandler = function(app, routeInfo, key) {
   });
 };
 
-authenticateRequest = function(cb) {
+function authenticateRequest (cb) {
 
   var self = this;
   var auth = self.raw.req.headers.authorization;
@@ -105,7 +105,7 @@ authenticateRequest = function(cb) {
   });
 };
 
-authorizeRequest = function(cb) {
+function authorizeRequest (cb) {
 
   var self = this;
 
@@ -131,7 +131,7 @@ authorizeRequest = function(cb) {
   }
 };
 
-buildRequestPayload = function(cb) {
+function buildRequestPayload (cb) {
   
   var nonOverrideable = ['userId','appId','apiKey',
     'userEmail','isAppOwner','isSuperUser','appName'];
@@ -158,7 +158,7 @@ buildRequestPayload = function(cb) {
   cb();
 };
 
-callPostgresFunction = function(cb) {
+function callPostgresFunction (cb) {
 
   var self = this;
 
@@ -174,7 +174,7 @@ callPostgresFunction = function(cb) {
 
 };
 
-outputResult = function() {
+function outputResult () {
 
   var self = this;
 
@@ -192,7 +192,7 @@ outputResult = function() {
   }
 };
 
-outputError = function(err) {
+function outputError (err) {
   var self = this;
   var response = self.raw.res;
   var req = self.raw.req;
