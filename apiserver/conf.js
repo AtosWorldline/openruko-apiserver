@@ -24,10 +24,18 @@ module.exports = {
   },
   pg: {
     database: env.PG_DATABASE || 'openruko',
+    database: env.PG_PORT || 'openruko',
     hostname: env.PG_HOST || 'localhost',
     user: env.PG_USER || 'openruko',
     password: env.PG_PASSWORD || 'openruko',
     schema: env.PG_SCHEMA || 'openruko_api'
+  },
+  redis: {
+    database: env.REDIS_DATABASE || 0,
+    hostname: env.REDIS_HOST || 'localhost',
+    port: env.REDIS_PORT || 6379,
+    user: env.REDIS_USER || 'openruko',
+    password: env.REDIS_PASSWORD || 'openruko'
   },
   logplex: {
     hostname: env.LOGPLEX_HOST || 'localhost',

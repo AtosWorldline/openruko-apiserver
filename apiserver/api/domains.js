@@ -1,20 +1,25 @@
+var net = require('../net');
+
 module.exports = {
   getDomains: {
     routePath: '/apps/:appName/domains',
     method: 'get',
     okayCode: 200,
-    after: 'onlyRows'
+    //after: 'onlyRows'
+    handler: net.domains.get
   },
   deleteDomain: {
     routePath: '/apps/:appName/domains/:domainName',
     method: 'delete',
     okayCode: 200,
-    errorCode: 404
+    errorCode: 404,
+    handler: net.domains.delete
   },
   deleteDomains: {
     routePath: '/apps/:appName/domains',
     method: 'delete',
-    okayCode: 200
+    okayCode: 200,
+    handler: net.domains.delete
   },
   addDomain: {
     routePath: '/apps/:appName/domains',
@@ -22,6 +27,7 @@ module.exports = {
     method: 'post',
     okayCode: 201,
     errorCode: 422,
+    handler: net.domains.add,
     after: function(cb) {
       this.responsePayload = {
         domain: this.requestPayload.domainName

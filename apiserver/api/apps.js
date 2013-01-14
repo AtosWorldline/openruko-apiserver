@@ -49,15 +49,16 @@ module.exports = {
     errorCode: 404
   },
   // FIXME why this here, and in domains.js
-  getDomains: {
+  /*getDomains: {
     routePath: '/apps/:appName/domains',
     payloadSource: 'params',
     method: 'GET',
     after: 'onlyRows',
     okayCode: 200,
     errorCode: 404
-  }
+  }*/
   // TODO rename an app
+  // --> beware of dropping the old name in redis and create the new key afterward
   // TODO transfer an app
   // TODO toggle maintenance mode
 };
